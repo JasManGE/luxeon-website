@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXEON - Jewelry Meets Memories | 珞寻·忆念系列</title>
+    <!-- 引入外部资源 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-nanyang {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+    <style>
+        /* 全局字体适配东南亚英文阅读习惯 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 图腾图标样式 */
+        .totem-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- 导航栏（响应式） -->
+    <nav class="fixed w-full bg-white/95 shadow-sm z-50">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center">
+                <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4c112e48166e4287bba1218aafa421b5.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=d%2BDEFEkvq9M3XA4zuUtYVrLGUCQ%3D" alt="LUXEON Logo" class="h-12 w-auto">
+                <span class="ml-2 text-2xl font-bold text-amber-800">LUXEON</span>
+            </a>
+            <!-- 桌面端导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#story" class="text-gray-700 hover:text-amber-700 transition">Brand Story</a>
+                <a href="#collection" class="text-gray-700 hover:text-amber-700 transition">Collections</a>
+                <a href="#feature" class="text-gray-700 hover:text-amber-700 transition">Features</a>
+                <a href="#experience" class="text-gray-700 hover:text-amber-700 transition">Experience</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div class="md:hidden hidden bg-white shadow-md absolute w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#story" class="py-2 text-gray-700 hover:text-amber-700">Brand Story</a>
+                <a href="#collection" class="py-2 text-gray-700 hover:text-amber-700">Collections</a>
+                <a href="#feature" class="py-2 text-gray-700 hover:text-amber-700">Features</a>
+                <a href="#experience" class="py-2 text-gray-700 hover:text-amber-700">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Hero区 -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-nanyang">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-amber-900 leading-tight text-shadow">
+                    Jewelry Meets <br>Memories
+                </h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-lg">
+                    The world's first emotional storage jewelry. Store your precious memories—voices, photos, stories—in a bracelet you wear every day.
+                </p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="#collection" class="bg-amber-800 text-white px-6 py-3 rounded-lg hover:bg-amber-700 transition">
+                        Explore Collections
+                    </a>
+                    <a href="#experience" class="border border-amber-800 text-amber-800 px-6 py-3 rounded-lg hover:bg-amber-50 transition">
+                        Experience Now
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c41a30383c8c404e82a0bfd27aa935ae.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=Dgt2ENbPvM838FKhk8EDPLBzG5g%3D" alt="LUXEON Memory Bracelet" class="w-full h-auto rounded-xl shadow-lg hover-scale">
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section id="story" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900">Brand Story</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed">
+                <p class="mb-4">
+                    Born from young creativity, rooted in Eastern elegance and Nanyang cultural heritage. LUXEON is more than just jewelry—it's a bridge between your precious moments and everyday life.
+                </p>
+                <p class="mb-4">
+                    What is the most precious memory you've ever had? A word from a loved one, an unforgettable sunset, a life-changing moment. Now, you can wear these memories with you, always.
+                </p>
+                <p>
+                    Light as luxury, heart as heritage. For Nanyang, for you.
+                </p>
+            </div>
+            <!-- 南洋文化图腾 -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <div class="totem-icon mb-3">
+                        <i class="fa fa-pagelines text-amber-800 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-amber-900">Elephant</h3>
+                    <p class="text-sm text-gray-500 text-center">Strength & Protection</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="totem-icon mb-3">
+                        <i class="fa fa-flower text-amber-800 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-amber-900">Frangipani</h3>
+                    <p class="text-sm text-gray-500 text-center">Elegance & Sincerity</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="totem-icon mb-3">
+                        <i class="fa fa-circle-o-notch text-amber-800 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-amber-900">Hulu</h3>
+                    <p class="text-sm text-gray-500 text-center">Prosperity & Fortune</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="totem-icon mb-3">
+                        <i class="fa fa-cloud text-amber-800 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-amber-900">Xiangyun</h3>
+                    <p class="text-sm text-gray-500 text-center">Peace & Aspiration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品系列 -->
+    <section id="collection" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900">Memory Collection</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+                Four stories, four materials, one timeless treasure. Each bracelet is embedded with an NFC chip to store your most cherished moments.
+            </p>
+
+            <!-- 系列1：海语清吟 -->
+            <div class="mb-16 flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09be3858a0b74b5a8a06f55cf87af7d1.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=oHD6Y4OU3OVJFg4b04t5LRSSrsw%3D" alt="Sea Whisper - Ice Agate" class="w-full h-auto rounded-xl shadow-lg hover-scale">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-amber-800">Sea Whisper</h3>
+                    <p class="text-sm text-gray-500 mb-4">Ice Agate · Transparent · Pure</p>
+                    <p class="text-gray-600 mb-6">
+                        Clear as the sea, for those who love journeys. Store the heartbeat of meeting by the sea, the unforgettable sunset over the water, and every precious travel moment.
+                    </p>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-microphone text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">120s Voice Recording</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-camera text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">50 Photos Storage</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-pencil text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">Unlimited Text Notes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系列2：暖韵沉香 -->
+            <div class="mb-16 flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/36f9863859df455981ca9dcbb9b83937.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=1LkdN292JcQVCQjUQcjM2J1VPWE%3D" alt="Warm Aroma - Red Agate" class="w-full h-auto rounded-xl shadow-lg hover-scale">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-amber-800">Warm Aroma</h3>
+                    <p class="text-sm text-gray-500 mb-4">Red Agate · Warm · Protective</p>
+                    <p class="text-gray-600 mb-6">
+                        Warm as the sunset, for those who protect their families. Store the gentle words of your mother, festival blessings, and the wishes of your loved ones.
+                    </p>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-microphone text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">120s Voice Recording</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-camera text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">50 Photos Storage</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-pencil text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">Unlimited Text Notes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系列3：翠影承泽 -->
+            <div class="mb-16 flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c255d3d7ae17462eb369cc30e06d7dee.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=usr0qtcN6zXZ0oXZ8TKQSyCS9VY%3D" alt="Green Shade - Hetian Jade" class="w-full h-auto rounded-xl shadow-lg hover-scale">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-amber-800">Green Shade</h3>
+                    <p class="text-sm text-gray-500 mb-4">Hetian Jade · Heritage · Vitality</p>
+                    <p class="text-gray-600 mb-6">
+                        Green as the rainforest, for those who pass on beauty. Store wedding vows, family photos, and anniversary memories that span generations.
+                    </p>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-microphone text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">120s Voice Recording</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-camera text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">50 Photos Storage</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-pencil text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">Unlimited Text Notes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系列4：月影安恬 -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c0534da242f543a49d354d44a8a4fb25.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=JQqwVjvwWzcx%2BqHUqYNcx%2FUazaU%3D" alt="Moon Calm - Hetian Jade" class="w-full h-auto rounded-xl shadow-lg hover-scale">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-amber-800">Moon Calm</h3>
+                    <p class="text-sm text-gray-500 mb-4">Hetian Jade · Peaceful · Sincere</p>
+                    <p class="text-gray-600 mb-6">
+                        Soft as moonlight, for those who treasure heartfelt moments. Store the first cry of a newborn, private memories, and the whispers of your heart.
+                    </p>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-microphone text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">120s Voice Recording</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-camera text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">50 Photos Storage</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-pencil text-amber-800 mr-2"></i>
+                        <span class="text-gray-600">Unlimited Text Notes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section id="feature" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900">NFC Smart Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 功能1：语音录制 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center hover-scale">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-microphone text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Voice Recording</h3>
+                    <p class="text-gray-600">
+                        Capture 120 seconds of sincere voices—mom's whispers, lover's vows, or your own thoughts.
+                    </p>
+                </div>
+                <!-- 功能2：照片存储 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center hover-scale">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-camera text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Photo Storage</h3>
+                    <p class="text-gray-600">
+                        Save up to 50 precious photos—family gatherings, travel moments, or the first smile of a baby.
+                    </p>
+                </div>
+                <!-- 功能3：文字笔记 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center hover-scale">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-pencil text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Text Notes</h3>
+                    <p class="text-gray-600">
+                        Unlimited text storage for your endless love, stories, and memories you never want to forget.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 沉浸式体验/展位信息 -->
+    <section id="experience" class="py-16 md:py-24 bg-amber-50">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-amber-900">Immersive Experience</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+                Visit our booth to touch, feel, and create your own memory bracelet. Experience the magic of your precious moments at your fingertips.
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-lg mx-auto">
+                <h3 class="text-xl font-semibold text-amber-800 mb-4">Booth Information</h3>
+                <p class="text-gray-600 mb-6">
+                    <i class="fa fa-map-marker text-amber-800 mr-2"></i>
+                    Booth XXX - [展会名称/地点]
+                </p>
+                <p class="text-gray-600 mb-8">
+                    Touch the bracelet, hear the voices of your loved ones, see the precious photos, and keep your memories close forever.
+                </p>
+                <a href="#" class="inline-block bg-amber-800 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition">
+                    Book Your Experience
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-amber-900 text-white py-12">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4c112e48166e4287bba1218aafa421b5.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260305221945C2976703DF97000E0657&rrcfp=8a172a1a&x-expires=1773325185&x-signature=d%2BDEFEkvq9M3XA4zuUtYVrLGUCQ%3D" alt="LUXEON Logo" class="h-10 w-auto mb-2">
+                    <p class="text-amber-200 max-w-xs">
+                        Jewelry Meets Memories - For Nanyang, for you.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#story" class="text-amber-200 hover:text-white transition">Brand Story</a></li>
+                            <li><a href="#collection" class="text-amber-200 hover:text-white transition">Collections</a></li>
+                            <li><a href="#feature" class="text-amber-200 hover:text-white transition">Features</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fa fa-envelope text-amber-200 mr-2"></i>
+                                <a href="mailto:info@luxeon.com" class="text-amber-200 hover:text-white transition">info@luxeon.com</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-phone text-amber-200 mr-2"></i>
+                                <span class="text-amber-200">+60 XXXXX XXXXX</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-8 h-8 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-amber-800 text-center text-amber-300 text-sm">
+                © 2026 LUXEON. All rights reserved. Designed for Nanyang.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本 -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
